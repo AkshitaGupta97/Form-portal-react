@@ -1,8 +1,13 @@
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
 
-function PrivateRoute() {
-  return (
-    <div>PrivateRoute</div>
-  )
+export default function PrivateRoute({children}) {
+  
+  const {user} = useAuth();
+  return user ? children : <Navigate to='/login' replace />
 }
 
-export default PrivateRoute
+// 
+// return user ? children : <Navigate to='/login' replace />
+// it means if user is present go to navigate page else do login
+

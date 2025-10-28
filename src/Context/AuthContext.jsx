@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 
 const AuthContext = createContext();
@@ -27,23 +27,23 @@ export function AuthProvider({children}) {
 
   const signUp = (username, password) => {
     const exists = users.some((u) => u.username === username);
-    if(exists) return {success:false, message:"username already taken"}  {/* we are returning success:false, as user already exist, now we won't add new user  */}
-    {/* else if user not exist, means new user */}
+    if(exists) return {success:false, message:"username already taken"}  /* we are returning success:false, as user already exist, now we won't add new user  */
+    /* else if user not exist, means new user */
     const newUser = {username,password}
     setUsers((prev) => [...prev, newUser])
     setUser({username})
     return {success: true}
   }
 
-  const logOut = setUser(null)
+  const logOut = () => setUser(null)
 
   return (
-    <div>
-      <AuthContext.Provider value={{user, logIn, signUp, logOut}}> 
-        {children}
-      </AuthContext.Provider>
-    </div>
+
+    <AuthContext.Provider value={{user, logIn, signUp, logOut}}> 
+      {children}
+    </AuthContext.Provider>
+
   )
 }
 
-export const useAuth = () => useContent(AuthContext)
+export const useAuth = () => useContext(AuthContext)
