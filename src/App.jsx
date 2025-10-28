@@ -1,6 +1,6 @@
 
 import './App.css'
-import { Route, Router, Routes } from 'react-router-dom'
+import { Navigate, Route, Router, Routes } from 'react-router-dom'
 import { AuthProvider } from './Context/AuthContext'
 import ContentProvider from './Context/ContentContext'
 import Sidebar from './Component/Sidebar'
@@ -38,6 +38,7 @@ function App() {
                   </PrivateRoute>
                 } />
                 <Route path='/view' element={<ViewContent />} />
+                <Route path='/' element={<Navigate to='login' replace />} />
               </Routes>
 
             </main>

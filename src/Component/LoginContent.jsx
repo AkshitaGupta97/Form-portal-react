@@ -38,7 +38,7 @@ function LoginContent() {
         </div>
         <div className="form-group">
           <label htmlFor="login-password">Password : </label>
-          <input type="password" id="login-password" placeholder="Enter username "
+          <input type="password" id="login-password" placeholder="Enter password "
             value={password} onChange={(e) => setPassword(e.target.value)}
           />
         </div>
