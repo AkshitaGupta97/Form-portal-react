@@ -37,7 +37,7 @@ export default function ContentProvider({ children }) {
 
 }
 
-export const useContent = () => useContext(createContext);
+export const useContent = () => useContext(ContentContext);
 
 /* now by doing this you can directly access useContent everywhere, without importing useContext in each file */
 

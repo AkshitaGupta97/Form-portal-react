@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { isNotEmpty } from "../Utils/Validations";
 
 function Signup() {
@@ -12,9 +12,11 @@ function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
 
-  if(user){
-    navigate('/view');
-  }
+  useEffect(() => {
+    if(user){
+      navigate('/view')
+    }
+  }, [user, navigate])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +64,7 @@ function Signup() {
         }
         <button className="btn" type="submit">Signup</button>
         <p> Already have an account ?
-           <Link to='/signup'>Login</Link>
+          <Link to='/login'>Login</Link>
         </p>
       </form>
 
