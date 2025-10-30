@@ -46,8 +46,8 @@ function LoginContent() {
           error && <div className="error">{error}</div>
         }
         <button className="btn" type="submit">Login</button>
-        <p>
-         <Link to='/signup'>Signup</Link>
+        <p className="account-message"> New to page . 
+          <Link to='/signup' className="link-tag">Signup</Link>
         </p>
       </form>
 

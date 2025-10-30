@@ -54,7 +54,7 @@ function ViewContent() {
   })
 
   return (
-    <div className="panel">
+    <div className="view-content">
       <h2>View Content</h2>
       <div className="controls">
         <div className="search-bar">

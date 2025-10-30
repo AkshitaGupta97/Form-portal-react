@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useContent } from "../Context/ContentContext";
 import { useEffect, useState } from "react";
 import { isNotEmpty } from "../Utils/Validations";
-import { AuthProvider, useAuth } from "../Context/AuthContext";
+import { useAuth } from "../Context/AuthContext";
 
 function AddContent() {
   const { addContent } = useContent();
@@ -56,9 +56,9 @@ function AddContent() {
   };
 
   return (
-    <div className="panel">
+    <div className="add-content">
       <h2>Add Content</h2>
-      <form onSubmit={handleSubmit} className="content-form">
+      <form onSubmit={handleSubmit} className=" content-form">
 
         <div className="form-group">
          <label htmlFor="title">Title : </label>
@@ -76,7 +76,7 @@ function AddContent() {
 
         <div className="form-group">
           <label htmlFor="category">Category : </label>
-          <select id="category" value={category} 
+          <select id="category" value={category} className="select-category"
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value='News'>News</option>
@@ -106,9 +106,9 @@ function AddContent() {
         showPreview && (
           <div className="preview">
             <h3>Preview</h3>
-            <h4>{title || 'Title'}</h4>
-            <p>{body || 'Contente Preview'}</p>
-            <small><b>Category : </b>{category} </small>
+            <h4><b>Title : </b>{title || 'Title'}</h4>
+            <p><b>Content : </b>{body || 'Content Preview'}</p>
+            <p><b>Category : </b>{category}</p>
           </div>
         )
       }

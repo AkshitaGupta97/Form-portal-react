@@ -63,8 +63,8 @@ function Signup() {
           error && <div className="error">{error}</div>
         }
         <button className="btn" type="submit">Signup</button>
-        <p> Already have an account ?
-          <Link to='/login'>Login</Link>
+        <p className="account-message"> Already have an account ?
+          <Link to='/login' className="link-tag">Login</Link>
         </p>
       </form>
 

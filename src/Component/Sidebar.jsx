@@ -21,12 +21,12 @@ function Sidebar() {
               <>
                 <li>
                   <NavLink to='/add'>
-                    Add Content
+                    <p>Add Content</p>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to='/view'>
-                    View Content
+                    <p>View Content</p>
                   </NavLink>
                 </li>
               </>
@@ -35,12 +35,12 @@ function Sidebar() {
               <>
                 <li>
                   <NavLink to='/login'>
-                    Login 
+                    <p>Login</p> 
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to='/signup'>
-                    Signup
+                    <p>Signup</p>
                   </NavLink>
                 </li>
 
@@ -52,7 +52,7 @@ function Sidebar() {
       {
         user&& (
           <div className="logout-section">
-            <button onClick={handleLogOut} className="btn logout-btn">
+            <button onClick={handleLogOut} className="logout-btn">
               Logout
             </button>
           </div>
