@@ -54,7 +54,7 @@ function AddContent() {
   return (
     <div className="panel">
       <h2>Add Content</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="content-form">
 
         <div className="form-group">
          <label htmlFor="title">Title : </label>

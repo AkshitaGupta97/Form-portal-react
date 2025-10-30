@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useAuth } from "../Context/AuthContext";
-import { useContent } from "../Context/ContentContext"
 import {isNotEmpty} from '../Utils/Validations'
 import { Link } from "react-router-dom";
+import { useContent } from "../Context/ContentContext";
 
 function ViewContent() {
 
   const {data, deleteContent, addComments} = useContent();
+
   const {user} = useAuth();
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -115,15 +116,14 @@ function ViewContent() {
                     <ul className="comments-list">
                       {
                         item.comments.map((comment) => (
-                          <li key={commentInput.id} className="comment-item">
+                          <li key={comment.id} className="comment-item">
                             <p>
-                              <strong>{commentInput.author}</strong>
+                              <strong>{comment.author}</strong>
                             </p>
                             <small>{new Date(comment.date).toLocaleString()}</small>
                           </li>
                         ))
-                      }
-                      
+                      }                     
                     </ul>
                   ):
                     (
@@ -132,7 +132,7 @@ function ViewContent() {
                   }
                   <form className="comment-form" onSubmit={(e) => handleCommentSubmit(e, item.id)} >
                     <input type="text" placeholder="Add a comment..."
-                      value={commentInput[item.id]}
+                      value={commentInput[item.id] ? commentInput[item.id] : '' }
                       onChange={(e) => handleCommentChange(item.id, e.target.value)} 
                     />
                     <button type="submit" className="btn">

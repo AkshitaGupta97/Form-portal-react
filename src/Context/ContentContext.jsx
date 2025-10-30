@@ -25,7 +25,7 @@ export default function ContentProvider({ children }) {
 
     const addComments = (id, comment) => {
         setData((prev) => prev.map((item) =>
-            item.id === id ? {...item, comments:[...item.comments, comment]} : item
+            item.id === id ? {...item, comments:[...(item.comments || []), comment]} : item
         ))
     }
 
