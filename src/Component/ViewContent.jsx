@@ -97,16 +97,19 @@ function ViewContent() {
                 <div className="content-header">
                   <div>
                     <h3>{item.title}</h3>
-                    <small><b>Category : </b>{item.category}</small>
+                    <small><b>Category : </b>{item.category} | <i>{item.author}</i> </small>
                   </div>
-                  <div className="content-actions">
-                    <Link to={`/edit/${item.id}`} className="btn-edit">
-                      Edit
-                    </Link>
-                    <button onClick={() => handleDelete(item.id)} className="btn-delete">
-                      Delete
-                    </button>
-                  </div>
+                  {  (item.author === user.username) &&
+
+                    <div className="content-actions">
+                      <Link to={`/edit/${item.id}`} className="btn-edit">
+                        Edit
+                      </Link>
+                      <button onClick={() => handleDelete(item.id)} className="btn-delete">
+                        Delete
+                      </button>
+                    </div>
+                  }
                 </div>
                 <p>{item.body}</p>
                 <small>{new Date(item.date).toLocaleString()}</small>
@@ -130,7 +133,9 @@ function ViewContent() {
                       <h2>No Comments yet.</h2>
                     )
                   }
-                  <form className="comment-form" onSubmit={(e) => handleCommentSubmit(e, item.id)} >
+
+                  { (item.author === user.username) &&
+                    <form className="comment-form" onSubmit={(e) => handleCommentSubmit(e, item.id)} >
                     <input type="text" placeholder="Add a comment..."
                       value={commentInput[item.id] ? commentInput[item.id] : '' }
                       onChange={(e) => handleCommentChange(item.id, e.target.value)} 
@@ -138,7 +143,9 @@ function ViewContent() {
                     <button type="submit" className="btn">
                       Comment
                     </button>
-                  </form>
+                    </form>
+                  }
+
                 </div>
               </li>
             ))

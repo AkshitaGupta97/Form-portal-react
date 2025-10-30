@@ -1,9 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ContentContext = createContext();
 
 export default function ContentProvider({ children }) {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(() => {
+        const storedData = localStorage.getItem('content');
+        return storedData ? JSON.parse(storedData) : [];
+    });
 
     const addContent = (content) => {
         setData((prev) => [...prev, { ...content, comments: [] }])
@@ -28,6 +31,10 @@ export default function ContentProvider({ children }) {
             item.id === id ? {...item, comments:[...(item.comments || []), comment]} : item
         ))
     }
+
+    useEffect(() => {
+        localStorage.setItem('content', JSON.stringify(data))
+    }, [data])
 
     return (
         <ContentContext.Provider value={{ data, addComments, editContent, addContent, deleteContent }}>

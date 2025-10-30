@@ -1,14 +1,19 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import useLocalStorage from "../Hook/useLocalStorage";
 
 const AuthContext = createContext();
 
 export function AuthProvider({children}) {
 
   const [user, setUser] = useState(null);
+
   const [users, setUsers] = useState(() => {
-  const storedUser = localStorage.getItem('users');
+    const storedUser = localStorage.getItem('users');
     return storedUser ? JSON.parse(storedUser) : [{username: 'admin', password:'admin123'}]
   })
+  
+  /* instead of it :  useLocalStorage('users', [{username: 'admin', password:'admin123'}])
+  */
 
   useEffect(() => {
     localStorage.setItem('users', JSON.stringify(users))

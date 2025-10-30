@@ -35,7 +35,8 @@ function EditContent() {
       title,
       body,
       category,
-      date: new Date().toISOString()
+      date: new Date().toISOString(),
+      author: contentToEdit.author
     };
 
     editContent(newContent);

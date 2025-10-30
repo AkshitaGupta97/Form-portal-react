@@ -18,10 +18,8 @@ function App() {
       <AuthProvider >
         <ContentProvider>
 
-
           <div className='app-container'>
             <Sidebar />
-
             <main className='main-content'>
 
               <Routes>

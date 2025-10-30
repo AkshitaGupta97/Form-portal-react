@@ -2,10 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useContent } from "../Context/ContentContext";
 import { useEffect, useState } from "react";
 import { isNotEmpty } from "../Utils/Validations";
+import { AuthProvider, useAuth } from "../Context/AuthContext";
 
 function AddContent() {
   const { addContent } = useContent();
   const navigate = useNavigate();
+
+  const {user} = useAuth();
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
@@ -39,7 +42,8 @@ function AddContent() {
       title,
       body,
       category,
-      date: new Date().toISOString()
+      date: new Date().toISOString(),
+      author: user.username
     };
 
     addContent(newContent);
