@@ -12,7 +12,7 @@ function ViewContent() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('All');
   const [sortOption, setSortOption] = useState('Newest');
-  const [commentInput, setCommentInput] = useState('');
+  const [commentInput, setCommentInput] = useState({});
 
   const handleDelete = (id) => {  // window.confirm(), return two value either true or false.
     if(window.confirm('Are you sure you want to delete this content ?')){
@@ -51,9 +51,6 @@ function ViewContent() {
       default: return 0;
     }
   })
-
-
-
 
   return (
     <div className="panel">
