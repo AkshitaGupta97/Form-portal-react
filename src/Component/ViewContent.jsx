@@ -121,9 +121,9 @@ function ViewContent() {
                         item.comments.map((comment) => (
                           <li key={comment.id} className="comment-item">
                             <p>
-                              {comment.author}
+                              {comment.author} 
                             </p>
-                            <small>{new Date(comment.date).toLocaleString()}</small>
+                            <p className="comment-date">{new Date(comment.date).toLocaleString()}</p>
                           </li>
                         ))
                       }                     
@@ -140,7 +140,7 @@ function ViewContent() {
                       value={commentInput[item.id] ? commentInput[item.id] : '' }
                       onChange={(e) => handleCommentChange(item.id, e.target.value)} 
                     />
-                    <button type="submit" className="btn">
+                    <button type="submit" className="btn comment-btn">
                       Comment
                     </button>
                     </form>

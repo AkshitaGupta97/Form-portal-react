@@ -164,6 +164,7 @@ input:focus {
     padding: 14px 18px;
     border-radius: 4px;
     width: 80%;
+    margin-top: 18%;
 }
 .preview h3 {
     color: rgb(85, 39, 6);
@@ -251,4 +252,10 @@ controls {
     font-weight: 600;
     color: darkorange;
 }
-
+ .comment-date {
+    font-weight: 600;
+    color: brown;
+}
+.comment-btn {
+    padding: 6px 8px;
+}
