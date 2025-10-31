@@ -65,7 +65,7 @@ function ViewContent() {
         <div className="filter-sort">
           <label>
             Filter by Category :
-            <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>
+            <select className="select-category" value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>
               <option value="All">All</option>
               <option value="News">News</option>
               <option value="Blog">Blog</option>
@@ -76,7 +76,7 @@ function ViewContent() {
 
           <label>
             Sort by Category :
-            <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
+            <select className="select-category" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
               <option value="Newest">Newest</option>
               <option value="Oldest">Oldest</option>
               <option value="Title A-Z">Title A-Z</option>
@@ -97,15 +97,15 @@ function ViewContent() {
                 <div className="content-header">
                   <div>
                     <h3>{item.title}</h3>
-                    <small><b>Category : </b>{item.category} | <i>{item.author}</i> </small>
+                    <p><b>Category : </b> <span>{item.category}</span> <b> | </b> <i>{item.author}</i> </p>
                   </div>
                   {  (item.author === user.username) &&
 
                     <div className="content-actions">
-                      <Link to={`/edit/${item.id}`} className="btn-edit">
+                      <Link to={`/edit/${item.id}`} className="btn btn-edit">
                         Edit
                       </Link>
-                      <button onClick={() => handleDelete(item.id)} className="btn-delete">
+                      <button onClick={() => handleDelete(item.id)} className="btn btn-delete">
                         Delete
                       </button>
                     </div>
@@ -121,7 +121,7 @@ function ViewContent() {
                         item.comments.map((comment) => (
                           <li key={comment.id} className="comment-item">
                             <p>
-                              <strong>{comment.author}</strong>
+                              {comment.author}
                             </p>
                             <small>{new Date(comment.date).toLocaleString()}</small>
                           </li>
@@ -130,7 +130,7 @@ function ViewContent() {
                     </ul>
                   ):
                     (
-                      <h2>No Comments yet.</h2>
+                      <p className="para-no-comment">No Comments yet.</p>
                     )
                   }
 

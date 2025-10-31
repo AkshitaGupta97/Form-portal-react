@@ -1,9 +1,11 @@
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: #b7d0ef;
 }
-
+Link {
+    text-decoration: none;
+}
 button, label, input {
     cursor: pointer;
 }
@@ -193,11 +195,60 @@ controls {
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    margin-top: 6px;
 }
 .filter-sort {
-    
+    margin-top: 6px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
-
-
+.content-list {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.content-list li {
+    border: 2px solid #bfbaba;
+    border-radius: 8px;
+    padding: 10px;
+    list-style: none;
+}
+.content-header{
+    font-weight: 600;
+}
+.content-header h3{
+    color: #ad3f3f;
+}
+.content-header i {
+    color: rgb(242, 107, 58);
+}
+.content-header span {
+    color: darkslategray;
+}
+.para-no-comment {
+    color: #c34747;
+    font-weight: 600;
+}
+.content-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.btn-edit {
+    padding: 8px 10px;
+}
+.btn-delete {
+    background-color: #d94a3a;
+    padding: 8px 10px;
+}
+.btn-delete:hover {
+    background-color: #d43422;
+}
+.comment-item p {
+    font-weight: 600;
+    color: darkorange;
+}
 
